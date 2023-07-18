@@ -1,0 +1,51 @@
+body {
+    background-color: lightslategrey;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.field {
+    width:100%; 
+    margin-top: 20px;
+    max-width: 300px;
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+button {
+    width: 300px;
+    height: 50px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    background-color: blue;
+    cursor: pointer;
+    display:flex;
+    justify-content:center;
+    margin: 20px 0;
+}
+
+button:hover {
+    background-color: #ddd;
+}

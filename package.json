@@ -1,0 +1,26 @@
+{
+  "name": "html_form",
+  "version": "1.0.0",
+  "description": "Topics: Forms Challenge Build an app with html only form submission - handle the submit on the backend and redirect the page what type of data is received? Create another endpoint that receives json & handle the form submission with javascript on the front end",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "frontend": "cd ./frontend && live-server",
+    "backend": "nodemon cd ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikkisato/html_form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikkisato/html_form/issues"
+  },
+  "homepage": "https://github.com/nikkisato/html_form#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1"
+  }
+}
