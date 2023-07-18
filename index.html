@@ -8,9 +8,8 @@
 </head>
 <body>
 <div class="container">
-    <!-- http://127.0.0.1:8080/?firstName=Nikki&lastName=Sato&message=HELLO -->
     <!-- http://127.0.0.1:8080/form the action will be sending it to this url -->
-    <form action="http://localhost:8000/form" method="POST">
+    <form action="/form" method="POST">
         <div class="field">
             <label for="firstName">First Name</label>
             <input id="firstName" type="text" name="firstName" required>
@@ -25,31 +24,25 @@
             <label for="message">Message</label>
             <input id="message" type="text" name="message" required>
         </div>
-
-        <div>
-            <p>{
-                "name": "John Doe",
-                "age": 30,
-                "email": "john.doe@example.com",
-                "address": {
-                  "street": "123 Main St",
-                  "city": "Anytown",
-                  "country": "USA"
-                },
-                "hobbies": ["reading", "cooking", "hiking"],
-                "isMarried": false
-              }</p>
-        </div>
-
-        <div>
-            <label for="json">JSON</label>
-            <input type="text" id="json" name="json" required>
-        </div>
-
         <button type="submit">Submit</button>
     </form>
 </div>
-    <script src="app.js"></script>
+
+<div class="container">
+  <!-- Javascript based form -->
+    <form id="jsonForm">
+        <div class="field">
+            <label for="json">JSON</label>
+            <input type="text" id="json" name="json" required>
+        </div>
+        <button type="submit">Submit JSON</button>
+    </form>
+</div>
+
+<script>
+    // javascript here to target the JSON file
+    // turning input into json
+</script>
 </body>
 </html>
 

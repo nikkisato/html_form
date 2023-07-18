@@ -1,44 +1,41 @@
 const express = require("express");
+const path = require("path");
 
 // Constant
 const HOST = "localhost";
-const PORT = 8000;
+const PORT = 3000;
 const app = express();
 
 /* Middleware */
 app.use(express.urlencoded({ extended: true }));
 
 /* Routes */
-/* This looks for http://127.0.0.1:8080/form */
 app.post("/form", (req, res) => {
 	try {
 		const formData = req.body;
 		console.log(formData);
-		res.redirect("http://127.0.0.1:8080/sucess");
+		// Extract the data
+
+		res.redirect("/success");
 	} catch (error) {
 		res.status(500).json({ status: "error", message: error.message });
 	}
+});
 
-	// if (res.ok) {
-	// 	res.send("Form data received successfully!");
-	// 	try {
-	// 		res.redirect("/success");
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "index.html"));
+});
 
-	// 		const formData = req.body;
-	// 		console.log(formData);
-	// 	} catch (error) {
-	// 		res.status(500).json({ status: "error", message: error.message });
-	// 	}
-	// } else {
-	// 	console.error("Error: ", error);
-	// }
+app.get("/success", (req, res) => {
+	res.sendFile(path.join(__dirname, "success.html"));
 });
 
 app.post("/json", (req, res) => {
 	try {
 		const formData = req.body;
 		console.log(formData);
-		res.redirect("http://127.0.0.1:8080/sucess");
+		res.json({ status: "success", message: "Data received" });
+		//ajax request
 	} catch (error) {
 		res.status(500).json({ status: "error", message: error.message });
 	}
