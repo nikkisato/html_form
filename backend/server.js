@@ -1,21 +1,21 @@
 const express = require("express");
-const cors = require("cors");
 
 // Constant
 const HOST = "localhost";
-const PORT = 3000;
+const PORT = 8000;
 const app = express();
 
 /* Middleware */
-app.use(cors());
-app.use(express.urlencoded({ extended: true })); // Parse form data
+app.use(express.urlencoded({ extended: true }));
 
 /* Routes */
-app.get("/", (req, res) => {
+app.post("/form", (req, res) => {
 	const formData = req.body;
 	console.log(formData);
 
-	res.send("Form data received successfully!");
+	if (res.ok) {
+		res.send("Form data received successfully!");
+	}
 });
 
 app.listen(PORT, HOST, () => {
