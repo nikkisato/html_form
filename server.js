@@ -30,11 +30,12 @@ app.post('/form', (req, res) => {
 	}
 });
 
-app.post('/json', (req, res) => {
+app.post('/json', express.json(), (req, res) => {
 	try {
-		const formData = req.body;
-		console.log(formData);
+		const json = req.body;
+		console.log(json);
 		res.json({ status: 'success', message: 'Data received' });
+
 		//ajax request
 	} catch (error) {
 		res.status(500).json({ status: 'error', message: error.message });

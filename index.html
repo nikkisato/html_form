@@ -63,6 +63,8 @@
         background-color: #ddd;
     }
     </style>
+
+    <!-- browser -->
 <div class="container">
     <form action="/form" method="POST">
         <div class="field">
@@ -83,8 +85,8 @@
     </form>
 </div>
 
+<!-- Javascript based form/ AJAX -->
 <div class="container">
-  <!-- Javascript based form -->
     <form id="jsonForm">
         <div class="field">
             <label for="json">JSON</label>
@@ -96,12 +98,34 @@
 
 <script>
    const form = document.getElementById("jsonForm");
-   form.addEventListener("submit",(event) => {
+   form.addEventListener("submit",async (event) => {
     event.preventDefault();
-    const formData = new FormData(form);
+    try{
+        const formData = new FormData(form);
     //https://www.javascripttutorial.net/web-apis/javascript-formdata/
-    const values = [...formData.entries()];
-    console.log("JSON", values);
+    const entries = [...formData.entries()];
+    console.log("JSON", entries);
+    const payload = {json: "hello world"};
+
+    const response = await fetch("/json", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        console.error("Error", response);
+        throw new Error("NOPE");
+    }
+
+    const json = await response.json();
+    console.log(json);
+
+    } catch(error) {
+        console.error(error);
+    }
    })
 </script>
 </body>
